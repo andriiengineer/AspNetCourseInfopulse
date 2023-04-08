@@ -8,7 +8,7 @@ namespace HW1.Controllers
     [Route("api/[controller]")]
     public class CarsController : Controller
     {
-        private List<Car> cars = new List<Car>()
+        private static List<Car> cars = new List<Car>()
         {
             new Car(),
             new Car { Id =  1, Make = "BMW", Model = "325d", Price = 88000, FuelType = FuelType.Diesel },
