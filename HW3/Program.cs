@@ -6,7 +6,7 @@
     {
         PrintString del = PrintGreen;
         del += PrintDarkYellow;
-        del("You can see Green line and than Dark Yellow line! :/");
+        del("You can see Green line and then Dark Yellow line! :/");
     }
 
 
