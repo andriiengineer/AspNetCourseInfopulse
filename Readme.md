@@ -10,3 +10,9 @@
 + Register interface in DI
 + create routes for every method (use app.Map)
 + Create middlewares for each route and print information
+
+**HW 3**
+Create delegate printString and use it  to reference method that takes a string as input and returns nothing.
+
+We will use this delegate to call two methods, the first prints the string to the console with green color, and the second one prints it to the console with orange color.
+Use property Console.ForegroundColor for setup color text.
