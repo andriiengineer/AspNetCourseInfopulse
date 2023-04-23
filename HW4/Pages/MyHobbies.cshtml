@@ -1,0 +1,34 @@
+@page
+@model HW4.Pages.MyHobbies
+@{
+    ViewData["Title"] = "My hobbies";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="d-flex justify-content-center">
+  
+  @foreach (var hobby in Model.Hobbies)
+  {
+    <div class="card m-2">
+        <div class="card-body">
+        <h5 class="card-title">@hobby.Id - @hobby.Name</h5>
+        <p class="card-text">@hobby.Desciption</p>
+@switch (@hobby.Involved.ToString())
+{
+    case "Low":
+        <span class="badge rounded-pill bg-secondary">@hobby.Involved</span>
+    break;
+    case "Medium":
+        <span class="badge rounded-pill bg-primary">@hobby.Involved</span>
+    break;
+    case "High":
+        <span class="badge rounded-pill bg-success">@hobby.Involved</span>
+    break;
+}
+        </div>
+    </div>
+  }
+
+
+</div>
