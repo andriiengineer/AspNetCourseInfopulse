@@ -21,3 +21,21 @@
 + Make a page 'About me' and describe yourself in several sentences. (Update index page)
 + Add a page 'My hobbies' and get information from the model. It should be List<Hobby>.
 + Describe model Hobby as you want. Add button on header on start page.
+
+**HW 5**
++ CREATE MVC Project
++ Create a new Controller named “Friend”.
++ Create a Model named “Friend” with following properties : FriendID,FriendName,Place
++ Create a Index (List of Friends) View and Method in Friend controller.
++ Update your model Friend for validation.
++ Make it FriendID as Required attribute.
++ Make it FriendName as Error Message = Friend Name Empty Not Allowed.
++ Make it Place entry resticted to Maximum Character = 25
++ Create a Insert new friend --> View and Method in Friend controller.
++ Insert new record with using Model in post.
++ Before Inserting check your Model means validate your model.
++ Insert new record with using Model in post.
++ Before Inserting check your Model means validate your model.
++ Create edit/Update View and Method in Controller.
+Update record with using FormCollection technique.
+Create Delete view and Method for delete a friend in post method of Controller.
