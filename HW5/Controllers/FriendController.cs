@@ -46,7 +46,7 @@ namespace HW5.Controllers
             if (ModelState.IsValid)
             {
                 friends.Add(friend);
-                return View("Index", friends);
+                return RedirectToAction("Index");
             }
             else
             {
@@ -55,24 +55,76 @@ namespace HW5.Controllers
 
         }
 
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int? id)
         {
-            var friend = friends.First(f => f.Id == id);
+            var friend = friends.FirstOrDefault(f => f.Id == id);
+            if (id == null || friend == null)
+            {
+                return NotFound();
+            }
             return View(friend);
         }
 
         [HttpPost]
-        public IActionResult Edit(Friend friend)
+        public IActionResult Edit(int? id, Friend updatedFriend)
         {
+            var friend = friends.FirstOrDefault(f => f.Id == id);
+            if (id == null || friend == null)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
-                friends.Add(friend);
-                return View("Index", friends);
+                friend.Id = updatedFriend.Id;
+                friend.Name = updatedFriend.Name;
+                friend.Place = updatedFriend.Place;
+
+                return RedirectToAction("Index");
             }
             else
             {
                 return View(friend);
             }
+        }
+
+        public IActionResult Details(int? id)
+        {
+            var friend = friends.FirstOrDefault(f => f.Id == id);
+            if (id == null || friend == null)
+            {
+                return NotFound();
+            }
+
+            return View(friend);
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            var friend = friends.FirstOrDefault(f => f.Id == id);
+            if (id == null || friend == null)
+            {
+                return NotFound();
+            }
+
+            return View(friend);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var friend = friends.FirstOrDefault(f => f.Id == id);
+            if (id == null || friend == null)
+            {
+                return NotFound();
+            }
+
+            if (friend != null)
+            {
+                friends.Remove(friend);
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
     }
